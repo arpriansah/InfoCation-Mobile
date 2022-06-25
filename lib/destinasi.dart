@@ -31,7 +31,7 @@ class destinasiState extends State<destinasi>{
                     child: IconButton(icon: 
                       const Icon(Icons.arrow_back_ios),
                       onPressed:() {
-                        
+                        Navigator.pop(context);
                       },
                       color: Colors.black,
                      ),
