@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "110124755823",
+    "firebase_url": "https://infocation-65081-default-rtdb.firebaseio.com",
+    "project_id": "infocation-65081",
+    "storage_bucket": "infocation-65081.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110124755823:android:68047bd3b4c93338ae169a",
+        "android_client_info": {
+          "package_name": "com.example.tubes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110124755823-dibpi674hjii67fkkefc1hggud2n0svs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5fWTbsb2zITOjV4hStdEXmejEbvzQnIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110124755823-dibpi674hjii67fkkefc1hggud2n0svs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
