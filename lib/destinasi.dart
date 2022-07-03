@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tubes/mappage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class destinasi extends StatefulWidget{
-  destinasi({Key? key, required this.namadestinasi, required this.pulau, required this.lokasi, required this.deskripsi}) : super(key: key);
-  String namadestinasi, pulau, lokasi, deskripsi;
+  destinasi({Key? key, required this.namadestinasi, required this.pulau, required this.lokasi, required this.deskripsi, required this.url}) : super(key: key);
+  String namadestinasi, pulau, lokasi, deskripsi, url;
 
   @override
   State<destinasi> createState()=> destinasiState();
@@ -19,6 +20,14 @@ class destinasiState extends State<destinasi>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFD0A67B),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () async {
+          await launch(widget.url);
+        }, 
+        child: Icon(Icons.location_on, color: Colors.black,),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -61,65 +70,58 @@ class destinasiState extends State<destinasi>{
               Container(
                 // alignment: Alignment.topLeft,
                 padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: const Color.fromARGB(255, 228, 228, 228),
+                  color: const Color(0xFFFEE8D1),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    // SizedBox(height: 50,),
-                    // Text("Destinasi Wisata", 
-                    //   style: TextStyle(
-                    //     fontSize: 20, 
-                    //     fontWeight: FontWeight.bold
-                    //   ),
-                    // ),
-                    Container(
-                      height: 500,
-                      width: 300,
-                      child: WebView(
-                        javascriptMode: JavascriptMode.unrestricted,
-                        initialUrl: "https://goo.gl/maps/hzkokuphTAvrwEmp9",
-                      ),
-                    ),
-                    TextButton(onPressed: () async {
-                      await launch("https://www.google.com/maps/search/?api=1&query=kuta+beach");
-                    }, child: Text("Open Location"),),
-                    SizedBox(height: 50,),
-                    Text(widget.namadestinasi, 
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                     SizedBox(height: 20,),
+                    Center(
+                      child: Text(widget.namadestinasi, 
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 50,),
+                    Text("Lokasi:", 
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    Text(widget.lokasi, 
+                      style: TextStyle(
+                        fontSize: 18
+                      ),
+                    ),
+
                     Text(widget.pulau, 
                       style: TextStyle(
                         fontSize: 18
                       ),
                     ),
                     SizedBox(height: 50,),
-                    Text(widget.lokasi, 
-                      style: TextStyle(
-                        fontSize: 18
-                      ),
-                    ),
-                    SizedBox(height: 50,),
                     Text(widget.deskripsi, 
+                      textAlign: TextAlign.justify,
                       style: TextStyle(
                         fontSize: 18
                       ),
                     ),
-                    SizedBox(height: 50,),
-                    ElevatedButton(onPressed: (){
-                      Navigator.push(
-                        context, 
-                        MaterialPageRoute(builder: (context) => MapPage())
-                      );
-                    }, 
-                    child: Text("See Location")),
-                    SizedBox(height: 220,),
+                    SizedBox(height: 40,),
+                    Container(
+                      height: 500,
+                      width: 300,
+                      child: WebView(
+                        javascriptMode: JavascriptMode.unrestricted,
+                        initialUrl: widget.url,
+                      ),
+                    ),
+                    SizedBox(height: 40,),
                   ],
                 ),
               ),

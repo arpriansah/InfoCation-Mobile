@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:tubes/destinasi.dart';
 
 class homepage extends StatefulWidget{
-  const homepage({Key? key}) : super(key: key);
+  homepage({Key? key, required this.user}) : super(key: key);
+  String user;
   @override
   State<homepage> createState() => homepageState();
 }
@@ -29,6 +30,7 @@ class homepageState extends State<homepage>{
     }
 
     return Scaffold(
+        backgroundColor: Color(0xFFD0A67B),
         body: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +42,7 @@ class homepageState extends State<homepage>{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Selamat Datang", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                      Text("user", style: TextStyle(fontSize: 22),),
+                      Text(widget.user, style: TextStyle(fontSize: 22),),
                     ],
                   ),
                 ),
@@ -48,7 +50,7 @@ class homepageState extends State<homepage>{
                   height: 100,
                   width: double.infinity,
                   alignment: Alignment.center,
-                  decoration: BoxDecoration(color: Color.fromARGB(255, 94, 123, 230), borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+                  decoration: BoxDecoration(color: Color(0xFFFEE8D1), borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
                   child: Column(
                     children: [
                       SizedBox(height: 25,),
@@ -83,7 +85,7 @@ class homepageState extends State<homepage>{
                 Expanded(
                     child: Container(
                       // padding: EdgeInsets.only(left: 40, top: 10, right: 40),
-                      color: Color.fromARGB(255, 94, 123, 230),
+                      color: Color(0xFFFEE8D1),
                       child: Flexible(
                         
                         child: FirebaseAnimatedList(
@@ -109,6 +111,7 @@ class homepageState extends State<homepage>{
                                       pulau: (snapshot.value as dynamic) ["pulau"], 
                                       lokasi: (snapshot.value as dynamic) ["lokasi"], 
                                       deskripsi: (snapshot.value as dynamic) ["deskripsi"],
+                                      url: (snapshot.value as dynamic) ["url"],
                                     ),
                                   ),
                                 );

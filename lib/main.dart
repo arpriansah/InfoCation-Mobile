@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tubes/destinasi.dart';
 import 'package:tubes/homepage.dart';
+import 'package:tubes/login.dart';
 import 'package:tubes/register.dart';
 // Arpriansah Yonathan - 1301194112
 
@@ -9,11 +10,11 @@ Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: 
     FirebaseOptions(
-      apiKey: "AIzaSyB5fWTbsb2zITOjV4hStdEXmejEbvzQnIU", 
-      appId: "1:110124755823:android:68047bd3b4c93338ae169a", 
-      messagingSenderId: "110124755823", 
-      projectId: "infocation-65081", 
-      databaseURL: "https://infocation-65081-default-rtdb.firebaseio.com/",
+      apiKey: "AIzaSyBf63lXOGjCmuwGQ1Gk6HcsDxoWatCpE60", 
+      appId: "1:318401057630:android:2133e2811b515a337735cf", 
+      messagingSenderId: "318401057630", 
+      projectId: "infocation-4c888", 
+      databaseURL: "https://infocation-4c888-default-rtdb.firebaseio.com/",
     ),
   );
   runApp(const MyApp());
@@ -27,11 +28,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'infoCation',
       theme: ThemeData(
+        primarySwatch: Colors.brown,
         appBarTheme: const AppBarTheme(
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      home: homepage(),
+      home: register(),
     );
   }
 }
