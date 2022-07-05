@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      home: register(),
+      home: login(),
     );
   }
 }

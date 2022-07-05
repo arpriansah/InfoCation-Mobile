@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_list.dart';
 import 'package:flutter/material.dart';
 import 'package:tubes/homepage.dart';
+import 'package:tubes/register.dart';
 
 class login extends StatefulWidget{
   login({Key? key}) : super(key: key);
@@ -73,7 +74,9 @@ class loginState extends State<login>{
                   cekData();
                 }, child: const Text("Submit"), style: ElevatedButton.styleFrom(shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(50))),),
                 const SizedBox(height: 10,),
-                TextButton(onPressed: () {}, child: const Text("Sign up")),
+                TextButton(onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => register()));
+                }, child: const Text("Sign up")),
               ],
             ),
           ),
